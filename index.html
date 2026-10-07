@@ -1,1 +1,137 @@
-<html lang='en'><head><script src='https://cdn.tailwindcss.com'></script><title>psyfaktz.lol</title></head><body class='bg-gray-900 text-white p-8'><h1>psyfaktz.lol Provisioning...</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>psyfaktz.lol - [ root@psyfaktz:~ ]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #0d0d0d;
+            color: #00ff00;
+        }
+        .terminal-box {
+            border: 1px solid #333;
+            background: #111;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+        }
+        .blinking-cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        ::selection {
+            background-color: #00ff00;
+            color: #0d0d0d;
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 9999;
+            position: absolute;
+            pointer-events: none;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex items-center justify-center relative overflow-hidden">
+    <div class="scanline"></div>
+    <div class="terminal-box w-full max-w-4xl p-6 rounded-lg relative z-10">
+        <!-- Terminal Header -->
+        <div class="flex items-center justify-between border-b border-green-900 pb-2 mb-6">
+            <div class="flex space-x-2">
+                <div class="w-3 h-3 rounded-full bg-red-600"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="text-sm text-gray-500">root@psyfaktz: ~</div>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6">
+            <!-- Intro -->
+            <div>
+                <p><span class="text-blue-400">root@psyfaktz</span>:<span class="text-blue-400">~</span>$ whoami</p>
+                <p class="text-green-300 mt-2">psy</p>
+                <p class="text-gray-400 mt-1">Cybersecurity Enthusiast / Developer / Digital Shadow</p>
+            </div>
+
+            <div>
+                <p><span class="text-blue-400">root@psyfaktz</span>:<span class="text-blue-400">~</span>$ cat bio.txt</p>
+                <div class="mt-2 text-green-400 opacity-90 leading-relaxed border-l-2 border-green-800 pl-4">
+                    <p>I operate in the dark, finding vulnerabilities before they find you.</p>
+                    <p>Fluent in Linux, Kali, Parrot OS, and breaking systems to secure them.</p>
+                    <p>Always learning, always hunting.</p>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div>
+                <p><span class="text-blue-400">root@psyfaktz</span>:<span class="text-blue-400">~</span>$ ls -la ./projects</p>
+                <div class="mt-2 text-gray-300 font-mono text-sm overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="text-gray-500 border-b border-gray-800">
+                                <th class="pb-2">Permissions</th>
+                                <th class="pb-2">Size</th>
+                                <th class="pb-2">Date</th>
+                                <th class="pb-2">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-800/50 transition-colors">
+                                <td class="py-2 text-red-400">drwxr-xr-x</td>
+                                <td>4096</td>
+                                <td>Oct 07</td>
+                                <td class="text-green-300 font-semibold">ZeroDay-Tracker</td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/50 transition-colors">
+                                <td class="py-2 text-red-400">-rwxr--r--</td>
+                                <td>2048</td>
+                                <td>Sep 22</td>
+                                <td class="text-green-300 font-semibold">NetSpy-Tool</td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/50 transition-colors">
+                                <td class="py-2 text-red-400">drwxr-xr-x</td>
+                                <td>4096</td>
+                                <td>Aug 15</td>
+                                <td class="text-green-300 font-semibold">Kali-Custom-Scripts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div>
+                <p><span class="text-blue-400">root@psyfaktz</span>:<span class="text-blue-400">~</span>$ ./skills.sh</p>
+                <div class="mt-2 flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-green-900/30 border border-green-700 rounded text-sm hover:bg-green-800/50 cursor-default">Penetration Testing</span>
+                    <span class="px-3 py-1 bg-green-900/30 border border-green-700 rounded text-sm hover:bg-green-800/50 cursor-default">Reverse Engineering</span>
+                    <span class="px-3 py-1 bg-green-900/30 border border-green-700 rounded text-sm hover:bg-green-800/50 cursor-default">Bash Scripting</span>
+                    <span class="px-3 py-1 bg-green-900/30 border border-green-700 rounded text-sm hover:bg-green-800/50 cursor-default">Python</span>
+                    <span class="px-3 py-1 bg-green-900/30 border border-green-700 rounded text-sm hover:bg-green-800/50 cursor-default">Networking</span>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <p><span class="text-blue-400">root@psyfaktz</span>:<span class="text-blue-400">~</span>$ ping psy <span class="blinking-cursor">_</span></p>
+                <p class="mt-2 text-gray-500 text-sm"># Drop a line if you have an exploit to share or need security consulting.</p>
+                <div class="mt-2">
+                    <a href="mailto:root@psyfaktz.lol" class="text-green-400 hover:text-green-300 hover:underline">root@psyfaktz.lol</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
